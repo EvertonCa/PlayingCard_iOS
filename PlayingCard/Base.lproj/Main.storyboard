@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,16 +20,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view opaque="NO" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="tEE-Ma-764" customClass="PlayingCardView" customModule="PlayingCard" customModuleProvider="target">
-                                <rect key="frame" x="16" y="44" width="343" height="734"/>
+                                <rect key="frame" x="16" y="137.33333333333331" width="342" height="547.33333333333348"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" priority="750" constant="800" id="t0m-Kn-EG0"/>
+                                    <constraint firstAttribute="width" secondItem="tEE-Ma-764" secondAttribute="height" multiplier="5:8" id="vnB-OL-MPS"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isFaceUp" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rank">
+                                        <integer key="value" value="11"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="suit" value="♠️"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tEE-Ma-764" secondAttribute="trailing" constant="16" id="7yJ-Y6-8V8"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tEE-Ma-764" secondAttribute="bottom" id="hpg-OB-l1g"/>
-                            <constraint firstItem="tEE-Ma-764" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="t2w-Vu-T9d"/>
-                            <constraint firstItem="tEE-Ma-764" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="tKl-H6-3kT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="tEE-Ma-764" secondAttribute="trailing" constant="16" id="7yJ-Y6-8V8"/>
+                            <constraint firstItem="tEE-Ma-764" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="HbL-PC-bFo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="tEE-Ma-764" secondAttribute="bottom" constant="16" id="hpg-OB-l1g"/>
+                            <constraint firstItem="tEE-Ma-764" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="pvz-yP-FcI"/>
+                            <constraint firstItem="tEE-Ma-764" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="t2w-Vu-T9d"/>
+                            <constraint firstItem="tEE-Ma-764" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="tKl-H6-3kT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
