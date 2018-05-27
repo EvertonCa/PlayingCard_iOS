@@ -11,6 +11,17 @@ import UIKit
 @IBDesignable
 class PlayingCardView: UIView {
     
+    var faceCardScale: CGFloat = SizeRatio.faceCardImageSizeToBoundsSize { didSet { setNeedsDisplay() } }
+    
+    @ objc func adjustFaceCardScale(byHandlingGestureRecognizerBy recognizer: UIPinchGestureRecognizer) {
+        switch recognizer.state {
+        case .changed:
+            faceCardScale *= recognizer.scale
+            recognizer.scale = 1.0
+        default: break
+        }
+    }
+    
     @IBInspectable
     var rank: Int = 12 { didSet { setNeedsDisplay(); setNeedsLayout() } }
     @IBInspectable
@@ -119,7 +130,7 @@ class PlayingCardView: UIView {
         {
             if let faceCardImage = UIImage(named: rankString+suit, in: Bundle(for: self.classForCoder), compatibleWith: traitCollection)
             {
-                faceCardImage.draw(in: bounds.zoom(by: SizeRatio.faceCardImageSizeToBoundsSize))
+                faceCardImage.draw(in: bounds.zoom(by: faceCardScale))
             }else
             {
                 drawPips()
